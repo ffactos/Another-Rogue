@@ -44,17 +44,25 @@ public class PlayerMovement : MonoBehaviour
 			
 		}
 		
+		if(rb.velocity.x < 0 && isFacingRight)
+			Flip();
+		else if(rb.velocity.x > 0 && !isFacingRight)
+			Flip();
+		
+		
 		for (int i = 0; i < Physics2D.OverlapCircleAll(feetPos.position, jumpRadius).Length; i++)
 			isGrounded = Physics2D.OverlapCircleAll(feetPos.position, jumpRadius)[i].CompareTag("Ground");
 		
 	}
 	
-	//public void Flip()
-	//{
-	//	
-	//	Vector2
-	//	
-	//}
+	public void Flip()
+	{
+		
+		Vector2 vector = transform.localScale;
+		transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+		isFacingRight = !isFacingRight;
+		
+	}
 	
 	private void OnDrawGizmosSelected()
 	{
