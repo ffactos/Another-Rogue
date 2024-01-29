@@ -37,10 +37,16 @@ public class PlayerMovement : MonoBehaviour
 		else
 			rb.velocity = Vector2.zero;
 			
+		isGrounded = Physics2D.OverlapCircle(feetPos.position, jumpRadius).CompareTag("Ground");		
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
+			
 			if(isGrounded)
+			{
+				
 				rb.AddForce(new Vector2(0f, jumpForce));
+					
+			}
 			
 		}
 		
@@ -48,10 +54,6 @@ public class PlayerMovement : MonoBehaviour
 			Flip();
 		else if(rb.velocity.x > 0 && !isFacingRight)
 			Flip();
-		
-		
-		for (int i = 0; i < Physics2D.OverlapCircleAll(feetPos.position, jumpRadius).Length; i++)
-			isGrounded = Physics2D.OverlapCircleAll(feetPos.position, jumpRadius)[i].CompareTag("Ground");
 		
 	}
 	

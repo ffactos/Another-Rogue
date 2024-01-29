@@ -5,14 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Ammo Amount
+  - Ammo Slider
+  - Weapon Holder
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Bullet
   - 
   - 
   - 
